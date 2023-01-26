@@ -23,8 +23,10 @@ const Clientes = db.define('clientes',{
     }
 
     },{timestamps: false})
-    Clientes.hasMany(Orden,{
-        onDelete: 'cascade',
-        onUpdate: 'cascade'
-    })
+    Clientes.associate = (models) => {
+        Clientes.hasMany(Orden, {
+          as: "orders",
+          foreignKey: "userId",
+        });
+      };
     module.exports = Clientes

@@ -13,13 +13,14 @@ const Orden = db.define('orden', {
     }
 });
 
-Orden.belongsTo(Clientes,{
-    as: "cliente",
-    foreignKey: "userId"
-})
-Orden.hasMany(OrdenItems, {
-    as: "ordernItems"
-})
-
+Orden.associate = (models) => {
+    Orden.Clientes = Orden.belongsTo(Clientes, {
+      as: "user",
+      foreignKey: "userId",
+    });
+    Orden.OrdenItems = Order.hasMany(OrdenItems, {
+      as: "orderItems",
+    });
+  };
 
 module.exports = Orden
