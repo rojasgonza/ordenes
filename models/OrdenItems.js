@@ -20,11 +20,11 @@ const OrdenItems = db.define('ordenitems',{
 }, {timestamps: false});
 
 OrdenItems.associate = (models) => {
-    OrdenItems.belongsTo(Orden, {
+    OrdenItems.belongsTo(models.Orden, {
       as: "order",
     });
 
-    OrdenItems.belongsTo(Productos, {
+    OrdenItems.belongsTo(models.Productos, {
       as: "product",
     });
   };

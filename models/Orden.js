@@ -14,11 +14,11 @@ const Orden = db.define('orden', {
 });
 
 Orden.associate = (models) => {
-    Orden.Clientes = Orden.belongsTo(Clientes, {
+    Orden.Clientes = Orden.belongsTo(models.lientes, {
       as: "user",
-      foreignKey: "userId",
+      foreignKey: "clienteId",
     });
-    Orden.OrdenItems = Order.hasMany(OrdenItems, {
+    Orden.OrdenItems = Orden.hasMany(models.OrdenItems, {
       as: "orderItems",
     });
   };

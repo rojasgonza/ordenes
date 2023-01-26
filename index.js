@@ -12,6 +12,12 @@ db.sync()
     .catch( error => console.log(error))
 app.use(cors());
 
+require('./models/Cliente')
+require('./models/Orden')
+require('./models/OrdenItems')
+require('./models/Productos')
+
+
 //
 app.use(function (req, res, next) {
 
@@ -37,7 +43,7 @@ app.use('/', routes());
 
 
 const host = process.env.HOST || '0.0.0.0';
-const port = process.env.PORT || 3306;
+const port = process.env.PORT || 5000;
 app.listen(port, host, ()=>{
     console.log('el servidor esta funcionando');
 });

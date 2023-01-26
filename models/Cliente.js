@@ -24,9 +24,9 @@ const Clientes = db.define('clientes',{
 
     },{timestamps: false})
     Clientes.associate = (models) => {
-        Clientes.hasMany(Orden, {
+        Clientes.hasMany(models.Orden, {
           as: "orders",
-          foreignKey: "userId",
+          foreignKey: "clienteId",
         });
       };
     module.exports = Clientes
