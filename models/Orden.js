@@ -14,7 +14,7 @@ const Orden = db.define('orden', {
 });
 
 Orden.associate = (models) => {
-    Orden.Clientes = Orden.belongsTo(models.lientes, {
+    Orden.Clientes = Orden.belongsTo(models.Clientes, {
       as: "user",
       foreignKey: "clienteId",
     });
